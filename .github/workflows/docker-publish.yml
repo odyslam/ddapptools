@@ -15,8 +15,6 @@ on:
         - './docker/Dockerfile'
   pull_request:
     branches: [ main ]
-    paths:
-        - './docker/Dockerfile'
 
 env:
   # Use docker.io for Docker Hub if empty
