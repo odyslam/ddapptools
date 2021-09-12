@@ -9,7 +9,6 @@ on:
   schedule:
     - cron: '24 13 * * *'
   push:
-    branches: [ main ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
@@ -34,7 +33,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Hadolint Action
-        uses: hadolint/hadolint-action@v1.6.0
+        uses: hadolint/hadolint-action@v1.4.0
         with:
           dockerfile: ./docker/Dockerfile
       # Login against a Docker registry except on PR
