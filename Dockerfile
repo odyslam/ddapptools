@@ -13,4 +13,7 @@ RUN . "$HOME/.nix-profile/etc/profile.d/nix.sh" && /tmp/install-dapptools.sh
 COPY start-dapptools.sh /usr/sbin/start-dapptools.sh
 RUN chmod +x /usr/sbin/start-dapptools.sh
 
+RUN mkdir "$HOME/dapptools/"
+WORKDIR "$HOME/dapptools/"
+
 ENTRYPOINT ["/usr/sbin/start-dapptools.sh"]
