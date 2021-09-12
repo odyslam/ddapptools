@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# The file is amost identical to the original installation script.
+# Removed   [[ "$(id -u)" -eq 0 ]] && oops "Please run this script as a regular user".
+# Our setup runs nix as root. Original file: https://dapp.tools/install .
+
 { # Prevent execution if this script was only partially downloaded
   set -e
 
@@ -18,6 +22,8 @@
 
   API_OUTPUT=$(curl -sS https://api.github.com/repos/dapphub/dapptools/releases/latest)
   RELEASE=$(echo "$API_OUTPUT" | jq -r .tarball_url)
+
+
 
   [[ $RELEASE == null ]] && oops "No release found in ${API_OUTPUT}"
 
