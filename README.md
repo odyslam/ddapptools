@@ -18,6 +18,7 @@ Instead of running `dapp` or `seth`, you run `ddapp.sh seth` or `ddapp.sh dapp` 
 - Create a container from the `odyslam/ddapptools` image
 - Mount the `$(pwd)` directory to that container
 - Source the `$(env)` of the dev machine inside the container
+- Source the `.env` file of the current directory inside the container. (This might become more flexible in the future).
 - Delete the container after use
 
 **Disclaimer:**
