@@ -33,7 +33,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+      - uses: hadolint/hadolint-action@1.5.0
+        with:
+          dockerfile: ./docker/Dockerfile
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
