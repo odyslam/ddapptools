@@ -28,12 +28,11 @@ You are advised to read the Dockerfile and all the scripts that come in the repo
 
 If you use [gakonst/dapptools-template](https://github.com/gakonst/dapptools-template) as the basis for your project, simply:
 - Clone this repository (odyslam/ddapptools) to your dev machine. Let's say you clone it in `~/code/ddapptools`.
-- open the `Makefile`
-- replace all `dapp` commands with `~/code/ddapptools/scripts/ddapp.sh dapp`
 - ???
+- run `~/code/ddapptools/scripts/ddapp.sh make test`
 - profit
 
-You can now use `dapptools` without having to install them.
+You can now use `dapptools` without having to install them. Since the local directory is mounted inside the container, the `Makefile` is mounted as well. Inside the container, `dapp` is instaslled, thus no further change is required from us.
 
 ## Contributing
 
