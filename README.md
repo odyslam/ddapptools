@@ -1,9 +1,5 @@
 # DDapptools, aka Docker-Dapptools
-<<<<<<< HEAD
 A docker version of the 💊 of solidity development.
-=======
-A docker version of the 💊  ofsolidity development.
->>>>>>> smol readme improv
 
 The container lives [here](https://hub.docker.com/r/odyslam/ddapptools) on DockerHub.
 
