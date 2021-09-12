@@ -14,8 +14,8 @@ if [[ -e ".env" ]];then
 else
   SOURCE_COMMAND=""
 fi
-docker run -it --env "$(env | grep -v 'NIX|TERM')" --name dapptools --mount type="bind",source="$(pwd)",target=/dapptools ddapptools:latest $SOURCE_COMMAND && $@
+docker run -it --env "$(env | grep -v 'NIX|TERM')" --name ddapptools --mount type="bind",source="$(pwd)",target=/dapptools odyslam/ddapptools:latest $SOURCE_COMMAND && $@
 # Stop container and remove it. This is required so that we can `docker run` the same image but with a new argument (thus a new container)
 # output of the commands is silenced
-docker stop dapptools > /dev/null
-docker rm dapptools > /dev/null
+docker stop ddapptools > /dev/null
+docker rm ddapptools > /dev/null
