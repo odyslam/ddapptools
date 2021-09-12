@@ -1,7 +1,7 @@
 FROM ubuntu:focal
 
 # hadolint ignore=DL3008
-RUN apt-get update && apt-get install --no-install-recommends -y curl xz-utils vim  && apt-get clean && rm -rf /var/lib/apt/lists/* \
+RUN apt-get update && apt-get install --no-install-recommends -y curl xz-utils vim  ca-certificates && apt-get clean && rm -rf /var/lib/apt/lists/* \
       && mkdir -m 0755 /nix && groupadd -r nixbld && chown root /nix \
       && for n in $(seq 1 10); do useradd -c "Nix build user $n" -d /var/empty -g nixbld -G nixbld -M -N -r -s "$(command -v nologin)" "nixbld$n"; done
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
