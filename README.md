@@ -1,4 +1,4 @@
-# Ddapptools, aka Docker-Dapptools
+# DDapptools, aka Docker-Dapptools
 A docker version of the 💊 of eth de
 
 ## TODO
