@@ -28,7 +28,7 @@ You are advised to read the Dockerfile and all the scripts that come in the repo
 
 If you use [gakonst/dapptools-template](https://github.com/gakonst/dapptools-template) as the basis for your project, simply:
 - Clone this repository (odyslam/ddapptools) to your dev machine. Let's say you clone it in `~/code/ddapptools`.
-- ???
+- `cd` into the`dapptools-template` directory
 - run `~/code/ddapptools/scripts/ddapp.sh make test`
 - profit
 
