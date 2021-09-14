@@ -1,4 +1,6 @@
 # DDapptools, aka Docker-Dapptools
+[![DockerHub Publish CI](https://github.com/OdysLam/ddapptools/actions/workflows/docker-publish.yml/badge.svg?branch=main)](https://github.com/OdysLam/ddapptools/actions/workflows/docker-publish.yml)
+
 A docker version of the 💊 of solidity development.
 
 The container lives [here](https://hub.docker.com/r/odyslam/ddapptools) on DockerHub.
@@ -24,19 +26,19 @@ docker run -it --env "$(env | grep -v 'NIX|TERM')" --name ddapptools --mount typ
 docker stop ddapptools > /dev/null
 docker rm ddapptools > /dev/null
 ```
-These commands have been packaged into `ddapp.sh`, thus to invoke seth we run `ddapp.sh seth` instead of just `seth`.
+These commands have been packaged into `ddapp.sh`. To invoke `seth` we run `ddapp.sh seth`.
 
-It's a helper scripts that does the following:
+It's a helper script that does the following:
 
 - Creates a container from the `odyslam/ddapptools` image
-- Mount the `$(pwd)` directory to that container
-- Source the `$(env)` of the dev machine inside the container
-- Source the `.env` file of the current directory inside the container. (This might become more flexible in the future).
-- Delete the container after use
+- Mounts the `$(pwd)` directory to that container
+- Sources the `$(env)` of the dev machine inside the container
+- Sources the `.env` file of the current directory inside the container. 
+- Deletes the container after use
 
 ### Example
 
-If you use [gakonst/dapptools-template](https://github.com/gakonst/dapptools-template) as the basis for your project, simply:
+If you use [gakonst/dapptools-template](https://github.com/gakonst/dapptools-template) as the basis for your project:
 - Clone this repository (odyslam/ddapptools) to your dev machine. Let's say you clone it in `~/code/ddapptools`.
 - `cd` into the`dapptools-template` directory
 - run `~/code/ddapptools/scripts/ddapp.sh make test`
