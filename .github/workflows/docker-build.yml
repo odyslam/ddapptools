@@ -1,10 +1,7 @@
 
-name: DockerHub Publish
+name: Docker build
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+# Build the container on every push, whenever the Dockerfile changes. 
 
 on:
   workflow_dispatch:
