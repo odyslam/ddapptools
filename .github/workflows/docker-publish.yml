@@ -9,6 +9,7 @@ on:
   schedule:
     - cron: '24 13 * * *'
   push:
+    branches: [ main ]
     # Publish semver tags as releases.
     branches: [ main ]
     tags: [ 'v*.*.*' ]
@@ -31,13 +32,6 @@ jobs:
         uses: hadolint/hadolint-action@v1.4.0
         with:
           dockerfile: ./docker/Dockerfile
-      - name: Cache Docker layers
-        uses: actions/cache@v2
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
       - name: Login to Docker Hub
         uses: docker/login-action@1
         with:
