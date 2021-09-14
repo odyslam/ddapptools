@@ -1,4 +1,4 @@
-name: DockerHub CI
+name: DockerHub Publish CI
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
