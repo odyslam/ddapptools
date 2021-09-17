@@ -32,8 +32,6 @@ It's a helper script that does the following:
 
 - Creates a container from the `odyslam/ddapptools` image
 - Mounts the `$(pwd)` (the current) directory to that container
-- Sources the `$(env)` of the dev machine inside the container
-- Sources the `.env` file of the current directory inside the container. 
 - Deletes the container after use
 
 ### Example
@@ -47,7 +45,9 @@ If you use [gakonst/dapptools-template](https://github.com/gakonst/dapptools-tem
 ## Troubleshooting
 
 **Mounting directories with Docker Desktop**
-If you use Docker Desktop, there are settings regarding the directories that you allow docker to mount to containers. You can read more about this on [Docker's documentation](https://docs.docker.com/desktop/), in the `user manual` of the platform that you are using (Windows/MacOS/Linux). 
+
+If you use Docker Desktop, there are settings regarding the directories that you allow docker to mount to containers. You can read more about this on [Docker's documentation](https://docs.docker.com/desktop/), in the `user manual` of the platform that you are using (Windows/MacOS/Linux).
+
 
 ## Contributing
 
