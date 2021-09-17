@@ -9,6 +9,9 @@ set -e
 # Else source nix.sh and pass to bash all arguments (command + argument) to the container
 
 if [[ "$1" == "idle" ]]; then
+  echo "Ddapptools devenv will now idle"
+  echo "You can open a terminal inside the container by typing the following command:"
+  echo "docker exec -it ddapptools bash"
   tail -f /dev/null
 else
   source "$HOME/.nix-profile/etc/profile.d/nix.sh"  &&  "$@"
