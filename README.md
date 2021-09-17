@@ -31,7 +31,7 @@ These commands have been packaged into `ddapp.sh`. To invoke `seth` we run `ddap
 It's a helper script that does the following:
 
 - Creates a container from the `odyslam/ddapptools` image
-- Mounts the `$(pwd)` directory to that container
+- Mounts the `$(pwd)` (the current) directory to that container
 - Sources the `$(env)` of the dev machine inside the container
 - Sources the `.env` file of the current directory inside the container. 
 - Deletes the container after use
@@ -44,6 +44,10 @@ If you use [gakonst/dapptools-template](https://github.com/gakonst/dapptools-tem
 - run `~/code/ddapptools/scripts/ddapp.sh make test`
 - Deploy the contract and test it with `~/code/ddapptools/scripts/ddapp.sh seth send 0x42... "Greeter(uint256)" 345`
 
+## Troubleshooting
+
+**Mounting directories with Docker Desktop**
+If you use Docker Desktop, there are settings regarding the directories that you allow docker to mount to containers. You can read more about this on [Docker's documentation](https://docs.docker.com/desktop/), in the `user manual` of the platform that you are using (Windows/MacOS/Linux). 
 
 ## Contributing
 
