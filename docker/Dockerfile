@@ -9,10 +9,14 @@ RUN set -o pipefail && curl -L https://nixos.org/nix/install | bash
 
 ENV USER=root
 COPY install-dapptools.sh /tmp/install-dapptools.sh
-RUN chmod +x /tmp/install-dapptools.sh && . "$HOME/.nix-profile/etc/profile.d/nix.sh" && /tmp/install-dapptools.sh
+RUN chmod +x /tmp/install-dapptools.sh && . "$HOME/.nix-profile/etc/profile.d/nix.sh" && /tmp/install-dapptools.sh && rm /tmp/install-dapptools.sh
 
 COPY start-dapptools.sh /usr/sbin/start-dapptools.sh
-RUN chmod +x /usr/sbin/start-dapptools.sh &&  mkdir "$HOME/dapptools/"
+# Add the  'source nix.sh' command to .bashrc so it's sourced
+# with every new bash session  that can be invoked via docker exec -it
+RUN chmod +x /usr/sbin/start-dapptools.sh &&  mkdir "$HOME/dapptools/" && \
+  echo "source $HOME/.nix-profile/etc/profile.d/nix.sh" >> "$HOME/.bashrc" && \
+   mkdir "$HOME/.ethereum" "$HOME/.ethereum/keystore"
 
 WORKDIR "$HOME/dapptools/"
 
