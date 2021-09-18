@@ -48,6 +48,22 @@ If you use [gakonst/dapptools-template](https://github.com/gakonst/dapptools-tem
 
 If you use Docker Desktop, there are settings regarding the directories that you allow docker to mount to containers. You can read more about this on [Docker's documentation](https://docs.docker.com/desktop/), in the `user manual` of the platform that you are using (Windows/MacOS/Linux).
 
+**Hardware wallet support**
+
+- Linux: It should be supported, due to the `--privileged` flag that is used to run the container. **It hasn't been tested**.
+- MacOS: **It's not supported**. This is because currently Docker Desktop for Mac [does not support USB passthrough](https://github.com/docker/for-mac/issues/900). The container simply can't see the usb devices.
+- Windows: Unknown
+
+**Ethsign keystores**
+
+`ddapp.sh` will automatically mount the default keystore directories that `ethsign` uses, if they are detected to exist. That means that the dev machine and the `ddapptools container` will share the same keystores that will persist between subsequent runs of `ddapp.sh` as they are stored on the dev machine, via the container.
+
+It will mount the first keystore that is detected, with the following order:
+- Detect $ETH_KEYSTORE env variable
+- Detect existence of `$HOME/Library/Ethereum/keystore`
+- Detect existence of `$HOME/.ethereum/keystore`
+
+The directory will be mounted inside the container at the following directory: `/root/.ethereum/keystore`.
 
 ## Contributing
 
