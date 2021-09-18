@@ -14,6 +14,11 @@ RUN chmod +x /tmp/install-dapptools.sh && . "$HOME/.nix-profile/etc/profile.d/ni
 COPY start-dapptools.sh /usr/sbin/start-dapptools.sh
 RUN chmod +x /usr/sbin/start-dapptools.sh &&  mkdir "$HOME/dapptools/"
 
+RUN mkdir "$HOME/.ethereum" "$HOME/.ethereum/keystore"
+
 WORKDIR "$HOME/dapptools/"
+
+# So that every new bash session can find the dapptools toolchain
+RUN echo 'source $HOME/.nix-profile/etc/profile.d/nix.sh' >> "$HOME/.bashrc"
 
 ENTRYPOINT ["/usr/sbin/start-dapptools.sh"]
