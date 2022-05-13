@@ -26,13 +26,13 @@ docker run -it --env "$(env | grep -v 'NIX|TERM')" --name ddapptools --mount typ
 docker stop ddapptools > /dev/null
 docker rm ddapptools > /dev/null
 ```
+The above commands:
+- Create a container from the `odyslam/ddapptools` image
+- Mount the `$(pwd)` (the current) directory to that container
+- Delete the container after use
+
 These commands have been packaged into `ddapp.sh`. To invoke `seth` we run `ddapp.sh seth`.
 
-It's a helper script that does the following:
-
-- Creates a container from the `odyslam/ddapptools` image
-- Mounts the `$(pwd)` (the current) directory to that container
-- Deletes the container after use
 
 ### Example
 
@@ -72,9 +72,3 @@ Yes
 ## License
 
 MIT
-
-## TODO
-
-- [x] Install dapptools in container
-- [x] create drop-in replacement container as CLI for dapptools
-- [ ] create full-fledged devenv that user can ssh into and develop
